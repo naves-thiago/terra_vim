@@ -1,6 +1,8 @@
 " Vim syntax file
 " Language:	Terra
-" Last Change:	2019 Jun 20
+" Maintainer:	Thiago Duarte Naves
+" First Author:	Thiago Duarte Naves
+" Last Change:	2019 Jun 27
 
 " Quit when a (custom) syntax file was already loaded
 if exists("b:current_syntax")
@@ -10,26 +12,22 @@ endif
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
 syn match Macro "\<_\w*\>"
-syn keyword cConstant   this null _
 syn keyword cOperator   not or and sizeof
-syn keyword cType       const nohold rec safe plain pure hold
-syn keyword cStatement  async await break continue data do else emit end
-syn keyword cStatement  event every finalize FOREVER global if input nothing
-syn keyword cStatement  output pre par pause return then until var do
-syn keyword cStatement  include interface
-syn keyword cStatement  escape call in
-syn keyword cStatement  watching tag new traverse pool val
-syn keyword cStatement  pos as deterministic lua tight
-syn keyword cStatement  code is dynamic recursive outer
+syn keyword cType       const nohold pure
+"syn keyword cStatement  rec safe plain hold event every finalize
+"syn keyword cStatement  global input nothing pre pause until
+"syn keyword cStatement  output interface data
+"syn keyword cStatement  escape call in
+"syn keyword cStatement  watching tag new traverse val
+"syn keyword cStatement  pos as deterministic tight
+"syn keyword cStatement  code is dynamic recursive outer
+syn keyword cStatement  async await break continue do else emit end
+syn keyword cStatement  FOREVER if include
+syn keyword cStatement  par return then var do
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
-" A bunch of useful C keywords
-syn keyword	cStatement	goto break return continue asm
-syn keyword	cLabel		case default
-syn keyword	cConditional	if else switch
-syn keyword	cRepeat		loop
-
-syn keyword	cTodo		contained TODO FIXME XXX
+syn keyword cRepeat loop
+syn keyword cTodo   contained TODO FIXME XXX
 
 " Terra constants
 syn keyword cConstant LEDS LED0 LED1 LED2 BROADCAST ERROR
@@ -44,9 +42,9 @@ syn keyword cConstant SEND_BS SENDBS_DONE SEND_GR SENDGR_DONE
 syn keyword cConstant AGGREG AGGREG_DONE REC_GR
 
 " Terra / Ceu types
-syn keyword	cType		byte short ubyte ushort long ulong float radioMsg
-syn keyword	cType		payload
-syn keyword	cStructure	pktype packet regtype
+syn keyword cType	byte short ubyte ushort long ulong float radioMsg
+syn keyword cType	payload
+syn keyword cStructure	pktype packet regtype
 syn keyword cStatement	from with
 syn keyword terraFunc	random getTime getNodeId setRFPower
 syn keyword terraFunc	qSize qPut qGet qClear
@@ -321,6 +319,6 @@ hi def link cCppOut2		cCppOut
 hi def link cCppOut		Comment
 hi def link terraFunc	Constant
 
-let b:current_syntax = "ceu"
+let b:current_syntax = "terra"
 
 " vim: ts=8
